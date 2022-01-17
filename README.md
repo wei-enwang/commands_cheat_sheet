@@ -1,5 +1,8 @@
 # Cheat sheet of multiple purposes
 This document contains useful commands for everyday coding.
+- **File transfer**
+- **Compress files**
+- **ssh related**
 ## File transfer
 ### scp
 remote -> local (folder): <br>
@@ -42,3 +45,8 @@ rsync -avzh local_dir/file user@address:~/remote_dir/
 tar -czvf zipped_filename.tar.gz folder/
 ```
 
+## ssh related
+### ssh tunnel
+```
+ssh -L 8080:localhost:<PORT> <REMOTE_USER>@<REMOTE_HOST>
+```
