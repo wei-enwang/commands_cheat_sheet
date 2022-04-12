@@ -1,8 +1,23 @@
 # Cheat sheet of multiple purposes
 This document contains useful commands for everyday coding.
+- **Git**
 - **File transfer**
 - **Compress files**
 - **ssh related**
+## Git
+### branching
+delete branch: <br>
+```
+git branch -d <branch-name>
+```
+delete branch(force): <br>
+```
+git branch -D <branch-name>
+```
+delete remote branch: <br>
+```
+git push --delete <remote name> <branch name>
+```
 ## File transfer
 ### scp
 remote -> local (folder): <br>
