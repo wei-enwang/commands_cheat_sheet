@@ -1,10 +1,11 @@
 # Cheat sheet of multiple purposes
 This document contains useful commands for everyday coding.
-- **Git**
-- **File transfer**
-- **Compress files**
-- **ssh related**
-## Git
+- [**git**](#git)
+- [**file transfer**](#file-transfer)
+- [**inspect files**](#inspect-files)
+- [**compress files**](#compress-files)
+- [**ssh related**](#ssh-related)
+## git
 ### branching
 delete branch: <br>
 ```
@@ -18,7 +19,7 @@ delete remote branch: <br>
 ```
 git push --delete <remote name> <branch name>
 ```
-## File transfer
+## file transfer
 ### scp
 remote -> local (folder): <br>
 ```
@@ -53,8 +54,37 @@ local -> remote:
 ```
 rsync -avzh local_dir/file user@address:~/remote_dir/
 ```
+## inspect files
+### ls
+check size of specific file:
+```
+ls -l <FILENAME>
+```
+check sizes of all files in the current directory:
+```
+ls -l *
+```
+check sizes of all files including hidden files in the current directory:
+```
+ls -al * 
+```
+check size of all the files including hidden files in the ‘dir’ directory:
+```
+ls -al <DIR/>
+```
+### du
+check disk usage of specific file:
+```
+du -s <FILENAME>
+```
+check disk usage summary of a directory tree and each of its subdirectories:
+```
+du <DIR/>
+```
+Common used tags(for both `ls` and `du`):
 
-## Compress files
+- `-h` - Makes file size more readable
+## compress files
 ### tar
 ```
 tar -czvf zipped_filename.tar.gz folder/
