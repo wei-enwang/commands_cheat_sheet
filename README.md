@@ -130,3 +130,8 @@ create `environment.yml` file from current conda environment
 ```
 conda env export --from-history | grep -v "prefix" > environment.yml
 ```
+update existing conda environment with `environment.yml`
+```
+conda activate <ENV_NAME>
+conda env update --file environment.yml --prune
+```
