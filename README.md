@@ -5,34 +5,35 @@ This document contains useful commands for everyday coding.
 - [**inspect files**](#inspect-files)
 - [**compress files**](#compress-files)
 - [**ssh related**](#ssh-related)
+- [**conda related**](#conda-related)
 ## git
 ### branching
 delete branch: <br>
 ```
-git branch -d <branch-name>
+git branch -d <BRANCH_NAME>
 ```
 delete branch(force): <br>
 ```
-git branch -D <branch-name>
+git branch -D <BRANCH_NAME>
 ```
 delete remote branch: <br>
 ```
-git push --delete <remote name> <branch name>
+git push --delete <REMOTE_NAME> <BRANCH_NAME>
 ```
 ## file transfer
 ### scp
 remote -> local (folder): <br>
 ```
-scp -r user@address:~/remote_dir/ local_dir/
+scp -r user@address:~/<REMOTE_DIRNAME>/ <LOCAL_DIRNAME>/
 ```
-Note that this command will place the folder under `local_dir/` <br>
+Note that this command will place the folder at `user@address:~/<REMOTE_DIRNAME>/` under `<LOCAL_DIRNAME>/` <br>
 for a single file: <br>
 ```
-scp user@address:~/remote_dir/file local_dir/
+scp user@address:~<REMOTE_DIRNAME>/<FILENAME> <LOCAL_DIRNAME>/
 ```
 local -> remote:
 ```
-scp local_dir/file user@address:~/remote_dir/ 
+scp <LOCAL_DIRNAME>/<FILENAME> user@address:~/<REMOTE_DIRNAME>/
 ```
 
 Other common used tags:
@@ -47,12 +48,12 @@ Syntax almost identical to `scp`
 
 remote -> local: <br>
 ```
-rsync -avzh user@address:~/remote_dir/ local_dir/
+rsync -avzh user@address:~/<REMOTE_DIRNAME>/ <LOCAL_DIRNAME>/
 ```
 
 local -> remote:
 ```
-rsync -avzh local_dir/file user@address:~/remote_dir/
+rsync -avzh <LOCAL_DIRNAME>/<FILENAME> user@address:~/<REMOTE_DIRNAME>/
 ```
 ## inspect files
 ### ls
@@ -70,7 +71,7 @@ ls -al *
 ```
 check size of all the files including hidden files in the ‘dir’ directory:
 ```
-ls -al <DIR/>
+ls -al <DIRNAME>/
 ```
 ### du
 check disk usage of specific file:
@@ -79,7 +80,7 @@ du -s <FILENAME>
 ```
 check disk usage summary of a directory tree and each of its subdirectories:
 ```
-du <DIR/>
+du <DIRNAME>/
 ```
 Common used tags(for both `ls` and `du`):
 
@@ -87,11 +88,36 @@ Common used tags(for both `ls` and `du`):
 ## compress files
 ### tar
 ```
-tar -czvf zipped_filename.tar.gz folder/
+tar -czvf zipped_filename.tar.gz <FOLDER_NAME>/
 ```
 
 ## ssh related
 ### ssh tunnel
 ```
 ssh -L 8080:localhost:<PORT> <REMOTE_USER>@<REMOTE_HOST>
+```
+
+## conda related
+### conda environments
+create environment:
+```
+conda create -n <ENV_NAME>
+```
+This creates empty environment and does not include python. <br/>
+
+create environment with python:
+```
+conda create -n myenv python=<PYTHON_VERSION> <PACKAGE_NAME>
+```
+create environment with `environment.yml` config file:
+```
+conda env create -f environment.yml
+```
+activate environment:
+```
+conda activate <ENV_NAME>
+```
+create `environment.yml` file from current conda environment
+```
+conda env export --from-history | grep -v "prefix" > environment.yml
 ```
