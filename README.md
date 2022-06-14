@@ -3,6 +3,7 @@ This document contains useful commands for everyday coding.
 - [**git**](#git)
 - [**file transfer**](#file-transfer)
 - [**inspect files**](#inspect-files)
+- [**remove files**](#remove-files)
 - [**compress files**](#compress-files)
 - [**ssh related**](#ssh-related)
 - [**conda related**](#conda-related)
@@ -85,6 +86,16 @@ du <DIRNAME>/
 Common used tags(for both `ls` and `du`):
 
 - `-h` - Makes file size more readable
+
+## remove files
+delete all files with extension `.EXT` under certain directory recursively
+```
+find . -name '*.EXT' -type f -delete
+```
+run without `-delete` to inspect summary of files to be removed
+```
+find . -name '*.EXT'
+```
 ## compress files
 ### tar
 ```
