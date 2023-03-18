@@ -152,7 +152,7 @@ conda env update --file environment.yml --prune
 Connect to `notebook.ipynb` host on remote address. <br/>
 remote terminal:
 ```
-jupyter-notebook --no-browser --port=8889 notebook.ipynb
+jupyter notebook --no-browser --port=8889 notebook.ipynb
 ```
 local terminal:
 ```
