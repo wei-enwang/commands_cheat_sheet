@@ -7,6 +7,7 @@ This document contains useful commands for everyday coding.
 - [**compress files**](#compress-files)
 - [**ssh related**](#ssh-related)
 - [**conda related**](#conda-related)
+- [**jupyter notebook remote session**](#jupyter-notebook)
 ## git
 ### branching
 delete branch: <br>
@@ -146,3 +147,15 @@ update existing conda environment with `environment.yml`
 conda activate <ENV_NAME>
 conda env update --file environment.yml --prune
 ```
+
+## jupyter notebook
+Connect to `notebook.ipynb` host on remote address. <br/>
+remote terminal:
+```
+jupyter-notebook --no-browser --port=8889 notebook.ipynb
+```
+local terminal:
+```
+ssh -N -L localhost:8888:localhost:8889 <REMOTE_USER>@<REMOTE_HOST>
+```
+Similar to [ssh tunnel](#ssh-tunnel)
