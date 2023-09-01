@@ -57,6 +57,12 @@ local -> remote:
 ```
 rsync -avzh <LOCAL_DIRNAME>/<FILENAME> user@address:~/<REMOTE_DIRNAME>/
 ```
+
+rsync through specific ssh port (default ssh port is 22)
+```
+rsync -avzh -e 'ssh -p <PORT_NUMBER>' --progress user@address:~/<REMOTE_DIRNAME>/ <LOCAL_DIRNAME>/
+```
+
 ## inspect files
 ### ls
 check size of specific file:
