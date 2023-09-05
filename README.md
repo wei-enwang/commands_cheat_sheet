@@ -5,7 +5,7 @@ This document contains useful commands for everyday coding.
 - [**inspect files**](#inspect-files)
 - [**remove files**](#remove-files)
 - [**compress files**](#compress-files)
-- [**docker related](#docker-related)
+- [**docker related**](#docker-related)
 - [**ssh related**](#ssh-related)
 - [**conda related**](#conda-related)
 - [**jupyter notebook remote session**](#jupyter-notebook)
