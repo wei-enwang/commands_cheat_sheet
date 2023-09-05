@@ -134,11 +134,15 @@ This creates empty environment and does not include python. <br/>
 
 create environment with python:
 ```
-conda create -n myenv python=<PYTHON_VERSION> <PACKAGE_NAME>
+conda create -n <ENV_NAME> python=<PYTHON_VERSION> <PACKAGE_NAME>
 ```
 create environment with `environment.yml` config file:
 ```
 conda env create -f environment.yml
+```
+clone existing environment (do this in the base environment)
+```
+conda create --name <NEW_ENV_NAME> --clone <OLD_ENV_NAME>
 ```
 activate environment:
 ```
