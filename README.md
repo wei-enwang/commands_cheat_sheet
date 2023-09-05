@@ -5,6 +5,7 @@ This document contains useful commands for everyday coding.
 - [**inspect files**](#inspect-files)
 - [**remove files**](#remove-files)
 - [**compress files**](#compress-files)
+- [**docker related](#docker-related)
 - [**ssh related**](#ssh-related)
 - [**conda related**](#conda-related)
 - [**jupyter notebook remote session**](#jupyter-notebook)
@@ -108,7 +109,26 @@ find . -name '*.EXT'
 ```
 tar -czvf zipped_filename.tar.gz <FOLDER_NAME>/
 ```
+## docker related
+### build docker image 
+from the same directory as the Dockerfile
+```
+docker build -t <IMAGE_NAME> .
+```
+### enable GPU usage in docker
+Install `nvidia-container-toolkit` for Debian-based OS
+```
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 
+sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
+sudo systemctl restart docker
+```
+Running docker image with GPU support
+```
+docker run --gpus all -it <IMAGE_NAME>
+```
 ## ssh related
 ### ssh tunnel
 ```
@@ -150,7 +170,7 @@ conda activate <ENV_NAME>
 ```
 create `environment.yml` file from current conda environment
 ```
-conda env export --from-history | grep -v "prefix" > environment.yml
+conda env export | grep -v "^prefix: " > environment.yml
 ```
 update existing conda environment with `environment.yml`
 ```
